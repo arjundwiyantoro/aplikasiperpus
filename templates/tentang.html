@@ -1,0 +1,220 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title></title>
+</head>
+<link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='css/bootstrap.css') }}">
+<link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='css/bootstrap.min.css')}}">
+<link rel="stylesheet" href="{{ url_for('static', filename='jquery-ui/jquery-ui.css')}}">
+<link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='datatables/jquery.dataTables.css')}}">
+<link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='font-awesome-4.7.0/css/font-awesome.min.css')}}">
+<link rel="stylesheet" href="{{ url_for('static', filename='dist/css/AdminLTE.min.css')}}">
+ <link rel="stylesheet" href="{{ url_for('static', filename='dist/css/skins/_all-skins.min.css')}}">
+
+<style type="text/css">
+	#konten{
+		height: 300px;
+		background-color: white;
+	}
+	td{
+		height: 30px;
+	}
+	table{
+		margin-left: 15px;
+	}
+</style>
+
+ <body class="hold-transition skin-blue sidebar-mini">
+<div class="wrapper">
+
+  <header class="main-header">
+    <!-- Logo -->
+    <a href="index2.html" class="logo">
+      <!-- mini logo for sidebar mini 50x50 pixels -->
+      <span class="logo-mini"><b>SA</b>P</span>
+      <!-- logo for regular state and mobile devices -->
+      <span class="logo-lg"><b>SistemAplikasiPerpus</b></span>
+    </a>
+    <!-- Header Navbar: style can be found in header.less -->
+    <nav class="navbar navbar-static-top">
+      <!-- Sidebar toggle button-->
+      <a href="#" class="sidebar-toggle" data-toggle="offcanvas" role="button">
+        <span class="sr-only">Toggle navigation</span>
+      </a>
+
+      <div class="navbar-custom-menu">
+        <ul class="nav navbar-nav">
+          <!-- Messages: style can be found in dropdown.less-->
+          
+          <!-- Notifications: style can be found in dropdown.less -->
+
+          <!-- User Account: style can be found in dropdown.less -->
+          <li class="dropdown user user-menu">
+            <a href="#" class="dropdown-toggle" data-toggle="dropdown">
+              <img src="{{ url_for('static',filename='dist/img/noavatarn.png')}}" class="user-image" alt="User Image">
+              <span class="hidden-xs">Admin</span>
+            </a>
+            <ul class="dropdown-menu">
+              <!-- User image -->
+              <li class="user-header">
+                <img src="{{ url_for('static',filename='dist/img/noavatarn.png')}}" class="img-circle" alt="User Image">
+
+                <p>
+                  Admin
+                  <small>Member since Nov. 2017</small>
+                </p>
+              </li>
+              <!-- Menu Body -->
+              <!-- Menu Footer-->
+              <li class="user-footer">
+                <div class="pull-right">
+                  <a href="logout" class="btn btn-default btn-flat">Sign out</a>
+                </div>
+              </li>
+            </ul>
+          </li>
+          <!-- Control Sidebar Toggle Button -->
+        </ul>
+      </div>
+    </nav>
+  </header>
+  <!-- Left side column. contains the logo and sidebar -->
+  <aside class="main-sidebar">
+    <!-- sidebar: style can be found in sidebar.less -->
+    <section class="sidebar">
+      <!-- Sidebar user panel -->
+      <div class="user-panel">
+        <div class="pull-left image">
+          <img src="{{ url_for('static',filename='dist/img/noavatarn.png')}}" class="img-circle" alt="User Image">
+        </div>
+        <div class="pull-left info">
+          <p>Admin</p>
+          <a href="#"><i class="fa fa-circle text-success"></i> Online</a>
+        </div>
+      </div>
+      <!-- search form -->
+      
+      <!-- /.search form -->
+      <!-- sidebar menu: : style can be found in sidebar.less -->
+      <ul class="sidebar-menu">
+        <li class="header">MAIN NAVIGATION</li>
+        <li>
+          <a href="dashboard">
+            <i class="fa fa-dashboard"></i> <span>Dashboard</span>
+          </a>
+        </li>
+        <li class="treeview">
+          <a href="data_anggota">
+            <i class="fa fa-user"></i>
+            <span>Data Anggota</span>
+          </a>
+        </li>
+        <li class="treeview">
+          <a href="data_admin">
+            <i class="fa fa-user"></i>
+            <span>Data Admin</span>
+          </a>
+
+        </li>
+        <li class="treeview">
+          <a href="data_buku">
+            <i class="fa fa-book"></i>
+            <span>Data Buku</span>
+          </a>
+        </li>
+        <li class="treeview">
+          <a href="pinjam">
+            <i class="fa fa-laptop"></i>
+            <span>Data Pinjam Buku</span>
+          </a>
+        </li>
+        <li class="treeview active">
+          <a href="tentang">
+            <i class="fa fa-laptop"></i>
+            <span>Tentang Website</span>
+          </a>
+        </li>
+
+
+    </section>
+    <!-- /.sidebar -->
+  </aside>
+
+  <!-- Content Wrapper. Contains page content -->
+  <div class="content-wrapper">
+    <!-- Content Header (Page header) -->
+   	    <section class="content-header">
+          <h1>
+            Tentang Aplikasi Perpus
+          </h1>
+        </section>
+
+  <section class="content">
+<div class="col-md-12" id="konten">
+<div class="col-md-11" style="margin-top: 20px;">
+	<p style="font-size: 18px;">{{ data.1 }}</p>
+</div>
+<table>
+	<tr>
+		<td width="90px"><b>Author</b></td>
+		<td><b>: {{ data.2 }}</b></td>
+	</tr>
+	<tr>
+		<td><b>Github</b></td>
+		<td><b>: <a href="{{ data.3 }}">{{ data.3 }}</a></b></td>
+	</tr>
+</table>
+<button type="button" class="btn btn-info" data-toggle="modal" data-target="#myModal" style="margin-top: 20px;margin-left: 15px;">Edit</button>
+
+		<div class="modal fade" id="myModal" role="dialog">
+    <div class="modal-dialog">
+    
+      <!-- Modal content-->
+      <div class="modal-content">
+        <div class="modal-header">
+          <button type="button" class="close" data-dismiss="modal">&times;</button>
+          <h4 class="modal-title">Tentang Website</h4>
+        </div>
+        <div class="modal-body">
+        <form method="POST">
+          <div class="form-group">
+            <label for="recipient-name" class="form-control-label">Tentang:</label>
+            <textarea name="tentang" class="form-control">{{ data.1 }}</textarea>
+          </div>
+          <div class="form-group">
+            <label for="recipient-name" class="form-control-label">Author:</label>
+            <input type="text" class="form-control" id="recipient-name" name="author" value="{{ data.2 }}">
+          </div>
+
+          <div class="form-group">
+            <label for="recipient-name" class="form-control-label">Github:</label>
+            <input type="text" class="form-control" id="recipient-name" name="github" value="{{ data.3 }}">
+          </div>
+        
+        <div class="modal-footer">
+          <input type="submit" class="btn btn-default">
+          <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+        </div>
+        </form>
+      </div>
+      
+    </div>
+</div>
+</section>
+</div>
+  <!-- /.content-wrapper -->
+  <footer class="main-footer">
+    <div class="pull-right hidden-xs">
+      <b>Version</b> 2.3.8
+    </div>
+    <strong>Copyright &copy; 2014-2016 <a href="http://almsaeedstudio.com">Almsaeed Studio</a>.</strong> All rights
+    reserved.
+  </footer>
+
+
+<script src="{{ url_for('static', filename='js/jquery1.js')}}"></script>
+<script src="{{ url_for('static', filename='dist/js/app.min.js')}}"></script>
+<script src="{{ url_for('static', filename='js/bootstrap.js')}}"></script>
+<script src="{{ url_for('static',filename='datatables/dataTables.bootstrap.js')}}"></script>
+<script src="{{ url_for('static',filename='datatables/jquery.dataTables.js')}}"></script>
+<script src="{{ url_for('static', filename='jquery-ui/jquery-ui.js')}}"></script>

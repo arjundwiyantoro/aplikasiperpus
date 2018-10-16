@@ -1,0 +1,16 @@
+#head {
+	background: #DD4747;
+	color: #020202;
+	text-align: center;
+	height: 168px; 
+	}
+#body {
+	background: #000000;
+	color: #FFFFFF;
+	height: 50px;
+	}
+#body2 {
+	background: #020202;
+	height: 400px;
+	padding: 10px;
+}

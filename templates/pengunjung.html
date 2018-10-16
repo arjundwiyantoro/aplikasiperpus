@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title></title>
+</head>
+<link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='css/bootstrap.css') }}">
+<link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='css/bootstrap.min.css')}}">
+<link rel="stylesheet" href="{{ url_for('static', filename='jquery-ui/jquery-ui.css')}}">
+<link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='datatables/jquery.dataTables.css')}}">
+<body style="background-color:#f2f2f2;">
+<style type="text/css">
+#example1_wrapper{
+    background-color:white;
+}
+
+
+</style>
+<div class="alert alert-info">
+  <strong>Info!</strong> Selamat Datang di Aplikasi Perpus Jika Anda Seorang Admin Silakan Login di <a href="login">Sini</a>
+</div>
+<div class="row" style="height: 500px;padding-top: 20px;">
+	<div class="col-md-6 col-md-offset-1" style="border: 1px solid white;background-color: white;border-radius: 5px;">
+		<table class="table table-strip" id="example1" style="-moz-border-radius: 4px; -webkit-border-radius: 4px;">
+		<thead>
+		<tr>
+			<th>Nama</th>
+			<th>Tanggal</th>
+			<th>Jam Berkunjung</th>
+			<th>Keperluan</th>
+		</tr>
+		</thead>
+		<tbody>
+		{% for d in data %}
+		<tr>
+			<td>{{ d.1 }}</td>
+			<td>{{ d.6 }}</td>
+			<td>{{ d.7 }}</td>
+			<td>{{ d.2 }}</td>
+		</tr>
+		{% endfor %}
+		</tbody>
+		</table>
+	</div>
+	<div class="col-md-3 col-md-offset-1" style="background-color: white;height: 500px;border-radius: 5px;">
+		<form method="POST" action="pengunjung">
+			<h4 style="margin-top: 15px;">BUKU PENGUNJUNG</h4>
+      <hr>
+			<div class="form-group col-md-10">
+            <label for="recipient-name" class="form-control-label">Nama:</label>
+            <input type="text" class="form-control" id="recipient-name" name="nama" placeholder="Nama Anda">
+          </div>
+          <div class="form-group col-md-10">
+            <label for="recipient-name" class="form-control-label">Kelas:</label>
+            <input type="text" class="form-control" id="recipient-name" name="kelas" placeholder="Kelas Anda">
+          </div>
+                    <div class="form-group col-md-10">
+            <label for="recipient-name" class="form-control-label">Keperluan:</label>
+            <input type="text" class="form-control" id="recipient-name" name="keperluan" placeholder="Keperluan">
+          </div>
+          <div class="form-group col-md-10">
+            <label for="recipient-name" class="form-control-label">Cari:</label>
+            <input type="text" class="form-control" id="recipient-name" name="cari" placeholder="Apa yang anda Cari?">
+          </div>
+          <div class="form-group col-md-10">
+            <label for="recipient-name" class="form-control-label">Saran:</label>
+            <input type="text" class="form-control" id="recipient-name" name="saran" placeholder="Saran Dan Masukan">
+          </div>
+          <div class="form-group col-md-10">
+          	<input class="btn btn-primary" type="submit" value="Submit">
+          </div>
+		</form>		
+	</div>
+
+</div>
+</body>
+</html>
+<script src="{{ url_for('static', filename='js/jquery1.js')}}"></script>
+<script src="{{ url_for('static', filename='js/bootstrap.js')}}"></script>
+<script src="{{ url_for('static',filename='datatables/dataTables.bootstrap.js')}}"></script>
+<script src="{{ url_for('static',filename='datatables/jquery.dataTables.js')}}"></script>
+<script src="{{ url_for('static', filename='jquery-ui/jquery-ui.js')}}"></script>
+<script type="text/javascript">
+  $(document).ready(function(){
+    $('#example1').DataTable({
+    	"bLengthChange": false,
+    	"bAutoWidth": false,
+    	"bInfo": false,
+    	"bFilter": false,
+    });
+  });
+</script>
